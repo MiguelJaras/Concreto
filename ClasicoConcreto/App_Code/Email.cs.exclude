@@ -1,0 +1,68 @@
+using System;
+using System.Globalization;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+using System.Net.Mail;
+using HtmlAgilityPack;
+/// <summary>
+/// Funciones
+/// </summary>
+public class Email 
+{
+    public Email()
+    { 
+    }
+
+
+    public void Password(string strProveedor,string strEmail, string strPassword)
+    {
+        MailMessage mm = new MailMessage();
+
+        mm.From = new MailAddress("SEM@marfil.com", "Marfil Sistemas");
+        mm.To.Add(new MailAddress(strEmail, strProveedor));
+        string local = AppDomain.CurrentDomain.BaseDirectory + "Temp\\RecuperacionPassword.htm";
+
+        HtmlDocument doc = new HtmlDocument();
+        doc.Load(local);
+
+        string a = doc.DocumentNode.InnerHtml;
+
+        string body;
+        string path = AppDomain.CurrentDomain.BaseDirectory + "Img\\top_empresa.png";
+        body = doc.DocumentNode.InnerHtml;
+
+        body = body.Replace("@Proveedor", strProveedor);
+        body = body.Replace("@Fecha", DateTime.Now.ToShortDateString());
+        body = body.Replace("@Password", strPassword);
+
+        doc = null;
+
+        mm.IsBodyHtml = true;
+        mm.Subject = "Recuperación de Password Marfil";
+        mm.Attachments.Add(new Attachment(path));
+        mm.Body = body;
+        SmtpClient smtp = new SmtpClient();
+        smtp.Port = 587;
+        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+        smtp.Host = "50.97.68.227";
+        smtp.UseDefaultCredentials = false;
+        smtp.Credentials = new System.Net.NetworkCredential("suministros@marfil.com", "M1rf3l*-");
+
+        try
+        {
+            smtp.Send(mm);
+        }
+        catch (Exception e)
+        {
+            a = e.Message;
+        }
+
+        mm.Attachments.Dispose();
+        mm.Dispose();
+        mm = null;
+        smtp = null;
+    }
+
+}

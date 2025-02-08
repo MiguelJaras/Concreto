@@ -1,0 +1,42 @@
+<%@ Page Language="c#" Inherits="Pages_Login2" CodeFile="Login2.aspx.cs" %>
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Recepción de ClasicoConcreto</title>
+<link href="../Styles/Login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <br />
+	<section id="content">
+        <form runat="server" id="form1">
+			<h1>
+                <img alt="ha" src="../Img/top_empresa.png" />
+            </h1>
+			<div>
+                <asp:TextBox runat="server" placeholder="Email" required="" id="username"></asp:TextBox>
+			</div>
+			<div>
+                <asp:TextBox runat="server" placeholder="Password / Si es primera vez, ocupar Email." required="" id="password" TextMode="Password"></asp:TextBox>
+			</div>
+			<div>
+                <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnAceptar_Click" />
+				<a href="EnvioPassword.aspx">Olvidaste tu password?</a>
+				<a href="#">Registrate</a>
+			</div>
+		</form><!-- form -->
+		<div class="button">
+			<a href="#">Descarga del Tutorial</a>
+		</div><!-- button -->
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+</html>

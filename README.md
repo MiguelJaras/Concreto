@@ -1,2 +1,0 @@
-# Concreto
-Sistema de concreto 

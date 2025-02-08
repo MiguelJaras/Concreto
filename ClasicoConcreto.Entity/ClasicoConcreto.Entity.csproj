@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClasicoConcreto.Entity</RootNamespace>
+    <AssemblyName>ClasicoConcreto.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DAC.Ares.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DAC.Ares.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity_Firma.cs" />
+    <Compile Include="Entity_Cotizacion.cs" />
+    <Compile Include="Entity_CotizacionDet.cs" />
+    <Compile Include="Entity_FacturasCliente.cs" />
+    <Compile Include="Entity_Empresas.cs" />
+    <Compile Include="Entity_FacturasGenerar.cs" />
+    <Compile Include="Entity_NotaCredito.cs" />
+    <Compile Include="Entity_NotaCreditoGenerar.cs" />
+    <Compile Include="Entity_Parametros.cs" />
+    <Compile Include="EntityBaseClass.cs" />
+    <Compile Include="Entity_CITY.cs" />
+    <Compile Include="Entity_Clientes.cs" />
+    <Compile Include="Entity_Email.cs" />
+    <Compile Include="Entity_Facturas.cs" />
+    <Compile Include="Entity_Horas.cs" />
+    <Compile Include="Entity_ITEM.cs" />
+    <Compile Include="Entity_ListaPrecios.cs" />
+    <Compile Include="Entity_ListaPrecios_Producto.cs" />
+    <Compile Include="Entity_ListaPrecios_Servicio.cs" />
+    <Compile Include="Entity_Opcion.cs" />
+    <Compile Include="Entity_Pedido.cs" />
+    <Compile Include="Entity_PedidoDet.cs" />
+    <Compile Include="Entity_PlantaOrdenes.cs" />
+    <Compile Include="Entity_PlantaOrdenesExterna.cs" />
+    <Compile Include="Entity_PlantaOrdenesRemisiones.cs" />
+    <Compile Include="Entity_ConsumoMaterial.cs" />
+    <Compile Include="Entity_Precios.cs" />
+    <Compile Include="Entity_Producto.cs" />
+    <Compile Include="Entity_ServiciosEspeciales.cs" />
+    <Compile Include="Entity_Servidor.cs" />
+    <Compile Include="Entity_STATE.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

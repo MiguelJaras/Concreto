@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClasicoConcreto", "ClasicoConcreto\", "{5C08A70E-FF5E-4521-BAE4-B2B0D3600BA3}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
+		ProjectReferences = "{716B0B41-5702-406D-ADAA-16524EA2C5D6}|ClasicoConcreto.Bussines.dll;{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}|ClasicoConcreto.Entity.dll;{CFE75BBD-7338-4639-935B-86E929DE1A80}|ClasicoConcreto.DataAccess.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/ClasicoConcreto"
+		Debug.AspNetCompiler.PhysicalPath = "ClasicoConcreto\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ClasicoConcreto\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ClasicoConcreto"
+		Release.AspNetCompiler.PhysicalPath = "ClasicoConcreto\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ClasicoConcreto\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57317"
+		SlnRelativePath = "ClasicoConcreto\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasicoConcreto.Entity", "ClasicoConcreto.Entity\ClasicoConcreto.Entity.csproj", "{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasicoConcreto.DataAccess", "ClasicoConcreto.DataAccess\ClasicoConcreto.DataAccess.csproj", "{CFE75BBD-7338-4639-935B-86E929DE1A80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasicoConcreto.Bussines", "ClasicoConcreto.Bussines\ClasicoConcreto.Bussines.csproj", "{716B0B41-5702-406D-ADAA-16524EA2C5D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C08A70E-FF5E-4521-BAE4-B2B0D3600BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C08A70E-FF5E-4521-BAE4-B2B0D3600BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C08A70E-FF5E-4521-BAE4-B2B0D3600BA3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFE75BBD-7338-4639-935B-86E929DE1A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE75BBD-7338-4639-935B-86E929DE1A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFE75BBD-7338-4639-935B-86E929DE1A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFE75BBD-7338-4639-935B-86E929DE1A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{716B0B41-5702-406D-ADAA-16524EA2C5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{716B0B41-5702-406D-ADAA-16524EA2C5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{716B0B41-5702-406D-ADAA-16524EA2C5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{716B0B41-5702-406D-ADAA-16524EA2C5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26B1FE2A-1FD8-483A-A086-E5595F01F4EA}
+	EndGlobalSection
+EndGlobal

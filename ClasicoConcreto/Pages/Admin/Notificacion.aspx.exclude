@@ -1,0 +1,22 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Opciones/Base.master" AutoEventWireup="true" CodeFile="Notificacion.aspx.cs" Inherits="Pages_Admin_Notificacion" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="CPHHeader" Runat="Server">
+    <script src="js/Notificacion.js"></script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CPHBase" Runat="Server">
+    
+    <div style="width:100%;height:auto; padding:10px;" >
+        <table>
+            <tr>
+                <td><span class="legend underline">Notificaciones</span></td>
+            </tr>
+        </table>
+        <table id="grid">
+
+        </table>
+        <div id="pager">
+
+        </div>
+    </div>
+</asp:Content>
+

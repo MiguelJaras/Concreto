@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using ClasicoConcreto.Entity;
+using ClasicoConcreto.Bussines;
+using System.Web.Services;
+using System.Data;
+using Newtonsoft.Json;
+
+public partial class Pages_Admin_Notificacion : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    
+    
+
+    [WebMethod]
+    public static string[] Data()
+    {
+        string[] rtnData = new string[2];
+        try
+        {
+            Notificacion objNotificacion = new Notificacion();
+            DataTable dt = objNotificacion.GetAll();
+            string JSONData = JsonConvert.SerializeObject(dt);
+            rtnData[0] = "ok";
+            rtnData[1] = JSONData;
+        }
+        catch
+        {
+            rtnData[0] = "no";
+            rtnData[1] = "[]";
+        }
+        return rtnData;
+
+    }
+
+
+    [WebMethod]
+    public static string Eliminar(int idNotificacion)
+    {
+        string strResult = "";
+        try
+        {
+            Notificacion objNotificacion = new Notificacion();
+            if (objNotificacion.Delete(idNotificacion))
+            {
+                strResult = "ok";
+            }
+        }
+        catch
+        {
+            strResult = "Error al tratar de eliminar el registro";
+        }
+        return strResult;
+
+    }
+
+
+}

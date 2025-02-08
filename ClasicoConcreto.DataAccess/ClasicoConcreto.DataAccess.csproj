@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CFE75BBD-7338-4639-935B-86E929DE1A80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClasicoConcreto.DataAccess</RootNamespace>
+    <AssemblyName>ClasicoConcreto.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>..\ClasicoConcreto\Bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base.cs" />
+    <Compile Include="DACPrecios.cs" />
+    <Compile Include="DACServidor.cs" />
+    <Compile Include="DACCITY.cs" />
+    <Compile Include="DACSignature.cs" />
+    <Compile Include="DACClientes.cs" />
+    <Compile Include="DACCotizacion.cs" />
+    <Compile Include="DACFacturasCliente.cs" />
+    <Compile Include="DACEmpresas.cs" />
+    <Compile Include="DACExcel.cs" />
+    <Compile Include="DACFacturas.cs" />
+    <Compile Include="DACFacturasGenerar.cs" />
+    <Compile Include="DACHoras.cs" />
+    <Compile Include="DACITEM.cs" />
+    <Compile Include="DACListaPrecios.cs" />
+    <Compile Include="DACListaPrecios_Producto.cs" />
+    <Compile Include="DACListaPrecios_Servicio.cs" />
+    <Compile Include="DACNotaCredito.cs" />
+    <Compile Include="DACNotaCreditoGenerar.cs" />
+    <Compile Include="DACOpcion.cs" />
+    <Compile Include="DACOrdenes.cs" />
+    <Compile Include="DACParametros.cs" />
+    <Compile Include="DACConsumo.cs" />
+    <Compile Include="DACPedido.cs" />
+    <Compile Include="DACProducto.cs" />
+    <Compile Include="DACProgramacionConcreto.cs" />
+    <Compile Include="DACServiciosEspeciales.cs" />
+    <Compile Include="DACSTATE.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClasicoConcreto.Entity\ClasicoConcreto.Entity.csproj">
+      <Project>{1686A2C9-58B6-4304-AA8B-ED42B70A9A2F}</Project>
+      <Name>ClasicoConcreto.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

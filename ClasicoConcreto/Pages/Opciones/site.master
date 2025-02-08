@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="Pages_Base" %>
+<%@ Register Src="~/Pages/Opciones/Controls/side-menu.ascx" TagPrefix="uc1" TagName="sidemenu" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Marfil Concreto</title>
+        
+        <!-- CSS -->
+        <link href="../../Styles/Site.css" rel="stylesheet" />
+        <link href="../../Scripts/boostrap/css/navbar-fixed-side.css" rel="stylesheet" />
+        <link href="../../App_Themes/redmond/jquery-ui.css" rel="stylesheet" />
+        <link href="../../App_Themes/redmond/theme.css" rel="stylesheet" />
+        <link href="../../Scripts/datatables/css/responsive.bootstrap.css" rel="stylesheet" />
+        <link href="../../Scripts/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+        <link href="../../Scripts/Magnific-Popup-master/magnific-popup.css" rel="stylesheet" />
+        <link href="../../Scripts/boostrap/css/bootstrap.css" rel="stylesheet" />
+        <!-- CSS -->
+
+        <!-- JS -->
+        <script src="../../Scripts/Validations.js"></script>
+        <script src="http://187.162.129.41/Concreto/Scripts/jquery/jquery-3.1.1.min.js"></script>
+        <script src="http://187.162.129.41/Concreto/Scripts/boostrap/js/bootstrap.min.js"></script>
+        <script src="../../Scripts/jquery-ui/jquery-ui.min.js"></script>
+        <script src="../../Scripts/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="../../Scripts/datatables/js/dataTables.bootstrap.js"></script>
+        <script src="../../Scripts/datatables/js/dataTables.responsive.js"></script>
+        <script src="../../Scripts/datatables/js/responsive.bootstrap.js"></script>
+        <script src="../../Scripts/datatables/js/datetime.js"></script>
+        <script src="../../Scripts/Magnific-Popup-master/jquery.magnific-popup.js"></script>
+        <script src="js/Base.js"></script>
+        <script src="../../Scripts/jquery.priceformat.js"></script>
+        <script src="../../Scripts/jquery.validate.min.js"></script>
+        <!-- JS -->
+
+        <asp:contentplaceholder id="HeadContent" runat="server"></asp:contentplaceholder>
+    </head>
+
+
+    <body>
+        <form runat="server" id="form">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3 col-md-2">
+                        <uc1:sidemenu runat="server" ID="sidemenu" />
+                    </div>
+                    <div class="col-sm-9 col-md-10">
+                        <header id="header-content">
+                            <div class="row">
+                                <div class="col-lg-12 text-right">
+                                    <a href="#">Julio Soto</a>
+                                </div>
+                            </div>
+                        </header>
+
+                        <!-- your page content -->
+                        <div id="content">
+                            <asp:ContentPlaceHolder ID="BodyContent" runat="server"></asp:ContentPlaceHolder>
+                        </div>
+                        <!-- your page content -->
+                        
+
+                    </div>
+                </div>
+
+            </div>
+
+            <footer id="footer" class="text-center">
+                
+            </footer>
+
+        </form>    
+        <div class="modal"></div>
+    </body>
+</html>

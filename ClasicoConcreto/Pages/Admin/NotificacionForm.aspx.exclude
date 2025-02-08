@@ -1,0 +1,92 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Opciones/Base.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="NotificacionForm.aspx.cs" Inherits="Pages_Admin_NotificacionForm" %>
+<%@ Register Assembly="Anthem" Namespace="Anthem" TagPrefix="anthem" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="CPHHeader" Runat="Server">
+    <script src="../../Scripts/tinymce/tinymce.min.js"></script>
+   
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnRegresar").click(function () {
+                location = 'Notificacion.aspx';
+            });
+            GenerarRTE();
+        });
+
+        function GenerarRTE()
+        {
+            tinymce.init({
+                height: 300,
+                selector: "textarea",
+                plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
+                ],
+                toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+                toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+                toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+
+                //theme_advanced_buttons1: 'formatselect,fontselect,fontsizeselect,bold,italic,underline,forecolor,backcolor,|,link,image,|,numlist,bullist,indent,outdent,justifyleft,justifycenter,justifyright,|,code,|,pastetext,pasteword',
+                
+                menubar: false,
+                preformatted: true,
+                toolbar_items_size: 'small',
+                style_formats: [
+                        { title: 'Bold text', inline: 'b' },
+                        { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+                        { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+                        { title: 'Example 1', inline: 'span', classes: 'example1' },
+                        { title: 'Example 2', inline: 'span', classes: 'example2' },
+                        { title: 'Table styles' },
+                        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+                ],
+                init_instance_callback: function (editor) {
+                    editor.setContent($("#<%=hddContent.ClientID%>").val());
+                },
+                paste_retain_style_properties: "all",
+                //paste_auto_cleanup_on_paste: true,
+                force_br_newlines: false,
+                force_p_newlines: false,
+                forced_root_block: '',
+            });
+        }
+
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CPHBase" Runat="Server">
+    <div>
+        <asp:HiddenField runat="server" ID="hddContent" />
+
+
+         <table>
+            <tr>
+                <td colspan="3"><h2 class="legend" style="text-decoration:underline"><asp:Label runat="server" ID="lblTitulo"></asp:Label></h2></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td style="width:50px"><span class="">Título</span></td>
+                <td style="width:250px">
+                    <asp:TextBox runat="server" ID="txtTitulo" Text=""></asp:TextBox>
+                </td>
+                <td>&nbsp</td>
+            </tr>
+            <tr>
+                <td><span class="">Contenido</span></td>
+                <td colspan="2">
+                    <asp:TextBox runat="server" ID="txtContenido" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <asp:Button runat="server" ID="btnGuardar" Text="Guardar" OnClick="btnGuardar_Click" CssClass="btn" />
+                    <input type="button" id="btnRegresar" class="btn" value="Regresar" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</asp:Content>
+

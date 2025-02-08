@@ -1,0 +1,130 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using ConsultaCFDIService;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+/// <summary>
+/// Descripción breve de ValidaCFDI
+/// </summary>
+public class ValidaCFDI
+{
+
+    string _strReceptorRFC;
+    string _strEmisorRFC;
+    decimal _decTotal;
+    string _strUUID;
+    string _strMensaje = "S - Comprobante obtenido satisfactoriamente";
+	public ValidaCFDI()
+	{
+		_strReceptorRFC = "";
+        _strEmisorRFC = "";
+        _decTotal = 0;
+        _strUUID = "";
+
+	}
+
+    public ValidaCFDI(string strEmisorRFC, string strReceptor, decimal decTotal, string strUUID)
+    {
+        _strReceptorRFC = strEmisorRFC;
+        _strEmisorRFC = strReceptor;
+        _decTotal = decTotal;
+        _strUUID = strUUID;
+
+    }
+
+    public bool ValidaFactura()
+    {
+        //ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(ValidateServerCertificate);
+        //CredentialCache cache = new CredentialCache();
+        
+        bool blnValido = false;
+        try
+        {
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(ValidarCertificado);
+            ConsultaCFDIService.ConsultaCFDIService consulta = new ConsultaCFDIService.ConsultaCFDIService();
+            ConsultaCFDIService.Acuse acuse = new ConsultaCFDIService.Acuse();
+            string strEmisorRFC = "?re=" + _strReceptorRFC;
+            string strReceptorRFC = "&rr=" + _strEmisorRFC;
+            string strTotal = "&tt=" + string.Format("{0:0000000000.000000}", _decTotal);
+            string strUUID = "&id=" + _strUUID;
+            string strExpresionImpresa = strEmisorRFC + strReceptorRFC + strTotal + strUUID;
+            acuse = consulta.Consulta(strExpresionImpresa);
+            if (acuse.CodigoEstatus.Contains(_strMensaje))
+                blnValido = true;
+        }
+        catch { }
+        return blnValido;
+    }
+
+    public static bool ValidateServerCertificate(Object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+    {
+        return true;
+    }
+
+    private Boolean ValidarCertificado(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+    {
+        return true;
+    }
+
+
+
+    #region strReceptorRFC
+    public string strReceptorRFC
+    {
+        get
+        {
+            return _strReceptorRFC;
+        }
+        set
+        {
+            _strReceptorRFC = value;
+        }
+    }
+    #endregion strReceptorRFC
+
+    #region strEmisorRFC
+    public string strEmisorRFC
+    {
+        get
+        {
+            return _strEmisorRFC;
+        }
+        set
+        {
+            _strEmisorRFC = value;
+        }
+    }
+    #endregion strEmisorRFC
+
+    #region decTotal
+    public decimal decTotal
+    {
+        get
+        {
+            return _decTotal;
+        }
+        set
+        {
+            _decTotal = value;
+        }
+    }
+    #endregion strEmisorRFC
+
+    #region strUUID
+    public string strUUID
+    {
+        get
+        {
+            return _strUUID;
+        }
+        set
+        {
+            _strUUID = value;
+        }
+    }
+    #endregion strUUID
+
+}

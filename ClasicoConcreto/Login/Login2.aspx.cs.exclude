@@ -1,0 +1,82 @@
+﻿using ClasicoConcreto.Bussines;
+using ClasicoConcreto.Entity;
+using System;
+using System.Web.Security;
+using System.Web.UI;
+
+public partial class Pages_Login2 : System.Web.UI.Page
+{
+
+    private Entity_Proveedores CurrentUser;
+
+    #region Events
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+
+        } 
+    }
+    #endregion    
+         
+
+    protected void btnAceptar_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            CurrentUser = GetUser();
+            if (CurrentUser != null)
+            {
+                Session["IntProveedor"] = CurrentUser.IntProveedor;
+                Session["Proveedor"] = CurrentUser.StrNombre;
+
+                if (CurrentUser.IntParametroInicial == 1)
+                {
+                    //Cambiar password                   
+                    Response.Redirect("NuevoPassword.aspx");
+                }
+                else
+                {
+                    String strUserName = "{0}|{1}|{2}|{3}|{4}|{5}|{6}";
+                    strUserName = String.Format(strUserName, CurrentUser.IntProveedor, CurrentUser.StrNombre, CurrentUser.StrEmail, Request.ServerVariables["REMOTE_HOST"], CurrentUser.strDiasPermitidos, CurrentUser.blnRemision, CurrentUser.intTipoFecha);
+                    FormsAuthentication.RedirectFromLoginPage(strUserName, false);
+                    string url = FormsAuthentication.GetRedirectUrl(strUserName, false);
+                    Response.Redirect(FormsAuthentication.DefaultUrl + (url != FormsAuthentication.DefaultUrl ? "?login=true&ReturnUrl=" + url : "?login=true"), false);
+                }
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(Page.GetType(), "msgFa", "alert('Usuario Invalido, favor de intentarlo nuevamente');", true);
+            }
+        }
+        catch (Exception ex)
+        {
+            ClientScript.RegisterStartupScript(Page.GetType(), "msgFa", "alert('"+ex.Message+"');", true);
+        }
+    }
+
+    #region GetUser
+    private Entity_Proveedores GetUser()
+    {
+
+        Entity_Proveedores usuario;
+        usuario = new Entity_Proveedores();
+
+        usuario.StrEmail = username.Text;
+        usuario.StrPassword = password.Text;
+        usuario.StrMaquina = Request.ServerVariables["REMOTE_HOST"].ToString();
+        var servervariables = Request.ServerVariables;
+        Proveedores ObjUser;
+        ObjUser = new Proveedores();
+           
+        //usuario.StrMaquina = Request.ServerVariables["REMOTE_HOST"].ToString();
+        usuario = ObjUser.Login(usuario);
+        ObjUser = null;
+           
+        return usuario;
+    }
+    #endregion            
+
+   }
+

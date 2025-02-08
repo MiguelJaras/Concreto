@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using ClasicoConcreto.Entity;
+using ClasicoConcreto.Bussines;
+using System.Web.Services;
+using System.Data;
+using Newtonsoft.Json;
+
+public partial class Pages_Admin_NotificacionForm : System.Web.UI.Page
+{
+    public int intNotificacion = 0;
+    public string strContenido = "";
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        
+        if (Request.QueryString["idNot"] != null)
+            int.TryParse(Request.QueryString["idNot"].ToString(), out intNotificacion);
+
+        if (!IsPostBack && intNotificacion > 0)
+        {
+            GetDataNotificacion();
+        }
+        else
+            lblTitulo.Text = "Alta de Notificación";
+
+       
+    }
+    protected void btnGuardar_Click(object sender, EventArgs e)
+    {
+        GuardarDatos();
+    }
+
+    protected void GetDataNotificacion()
+    {
+        string strTitulo;
+        Notificacion objNotificacion = new Notificacion();
+        var entNotificacion = objNotificacion.Get(intNotificacion);
+        if (entNotificacion.intNotificacion > 0)
+        {
+            strContenido = entNotificacion.strContenido;
+            hddContent.Value = HttpUtility.HtmlDecode(strContenido);
+            strTitulo = entNotificacion.strNotificacion;
+            txtTitulo.Text = strTitulo;
+            lblTitulo.Text = "Editar de Notificación";
+        }
+    }
+
+    protected void GuardarDatos()
+    {
+        try
+        {
+            string strTitulo, strContenido, strUsuario, strMaquina;
+            Notificacion objNotificacion = new Notificacion();
+            Entity_Notificacion entNotificacion = new Entity_Notificacion();
+            strTitulo = txtTitulo.Text;
+            strContenido = HttpUtility.HtmlEncode(txtContenido.Text);
+            strUsuario = ClasicoConcreto.SEMSession.GetInstance.StrNombre;
+            strMaquina = ClasicoConcreto.SEMSession.GetInstance.StrMaquina;
+            entNotificacion.intNotificacion = intNotificacion;
+            entNotificacion.strNotificacion = strTitulo;
+            entNotificacion.strContenido = strContenido;
+            entNotificacion.StrUsuario = strUsuario;
+            entNotificacion.StrMaquina = strMaquina;
+            objNotificacion.Save(entNotificacion);
+            hddContent.Value = HttpUtility.HtmlDecode(strContenido);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Datos guardados correctamente.');", true);
+        }
+        catch {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error al tratar de guardar los datos');", true);
+        }
+
+
+    }
+
+}
