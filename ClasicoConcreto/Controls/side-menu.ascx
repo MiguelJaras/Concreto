@@ -43,7 +43,7 @@
                             <%if (IntCliente == 3 || IntCliente == 9)
                                {%>
                           <%--  <li><a href='<%=Page.ResolveUrl("~/Pages/Admin/PlantaCargaExterna.aspx")%>'>Carga Venta Externa</a></li>--%>
-                             <li><a href='<%=Page.ResolveUrl("~/Pages/Admin/PlantaCargaRemisiones.aspx")%>'>Carga Venta Mensual</a></li>
+                             <%--<li><a href='<%=Page.ResolveUrl("~/Pages/Admin/PlantaCargaRemisiones.aspx")%>'>Carga Venta Mensual</a></li>--%>
                              <%} %>
 
                         </ul>
